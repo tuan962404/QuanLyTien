@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "View_Update_Hui";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Detail_HuiHeo
+<ol class="breadcrumb">
+    <form action="/Home/View_Update_Hui" method="post">
+        <li>
+            @if (ViewBag.Date == "")
+            {
+                <h4 style="color:red">Chọn ngày nhập</h4>
+                <input type="date" ng-model="Date" name="date" class="form-control" /><br />
+                <input type="submit" value="OK" class="btn btn-success" />
+            }
+            else
+            {
+                <h4 style="color:red">Ngày nhập</h4>
+                <input type="date" ng-model="Date" name="date" value="@ViewBag.Date" class="form-control" /><br />
+                <input type="submit" value="OK" class="btn btn-success" />
+            }
+        </li>
+    </form>
+</ol>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Nhập Tiền Hụi
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên</th>
+                        <th>Buổi</th>
+                        <th>Ngày</th>
+                        <th>Số Tiền</th>
+                        <th>Ghi Chú</th>
+                        <th>Chức Năng</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Tên</th>
+                        <th>Buổi</th>
+                        <th>Ngày</th>
+                        <th>Số Tiền</th>
+                        <th>Ghi Chú</th>
+                        <th>Chức Năng</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @if (ViewBag.Date != "")
+                    {
+                        if (ViewBag.List != null)
+                        {
+                            var list = ViewBag.List;
+                            int idso = 0;
+                            foreach (var i in list)
+                            {
+                                <tr style="font-weight:bold">
+                                    <td>
+                                        @i.Name
+                                    </td>
+                                    <td>
+                                        @i.Buoi
+                                    </td>
+                                    <td style="background-color:lightsalmon">
+                                        @{ 
+                                            DateTime date = ViewBag.DateNonFortmat;
+                                            string date_fortmat = date.ToShortDateString();
+                                        }
+                                        @date_fortmat
+                                    </td>
+                                    @{
+                                        string id = "ID" + Convert.ToString(idso);
+                                        string id_ghichu = "IDGC" + Convert.ToString(idso);
+                                        string id_nhap = "IDNhap" + Convert.ToString(idso);
+                                    }
+                                    <td>
+                                        <input id="@id" type="text" class="form-control" />
+                                    </td>
+                                    <td>
+                                        <textarea id="@id_ghichu" class="form-control"></textarea>
+                                    </td>
+                                    <td>
+                                        <div id="@id_nhap">
+                                            <input type="button" value="Nhập" onclick="Update('@i.Name','@ViewBag.Date','@i.Buoi','@id','@id_ghichu','@id_nhap')" class="btn btn-success" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                idso++;
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Update(name, date, buoi, sotien, ghichu, id_nhap) {
+        var getIdsotien = document.getElementById(sotien);
+        var getSotien = getIdsotien.value;
+
+        var getIdghichu = document.getElementById(ghichu);
+        var getGhichu = getIdghichu.value;
+
+        $.ajax({
+            url: "/Home/Update_Hui",
+            data: {
+                name: name,
+                date: date,
+                buoi: buoi,
+                sotien: getSotien,
+                ghichu: getGhichu,
+            },
+            dataType: "json",
+            type: "GET",
+            success: function () {
+                var id = document.getElementById(id_nhap);
+                var html = '<img src="../Content/iconYes.png" />';
+                $(id).html(html);
+            }
+        });
+    }
+</script>

@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "AddNameHui";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List_Name_HuiHeo
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Thêm người mới
+    </div>
+   
+    <div class="card-body">
+        <div class="table-responsive">
+            @using (Html.BeginForm("AddNameHui", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Buổi</th>
+                            <th>Tiêu Đề</th>
+                            <th>Chức Năng</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Buổi</th>
+                            <th>Tiêu Đề</th>
+                            <th>Chức Năng</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                    <td>
+                        @Html.TextBoxFor(m=>m.Name,"",new {@class="form-control" , @required="true" })
+                        @if(ViewBag.Error != null)
+                        {
+                            <span style="color:red">Tên này đã được đặt!<br />Vui lòng đặt tên khác!</span>
+                        }
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Buoi, "", new { @class = "form-control" , @required = "true" })
+                    </td>
+                    <td>
+                        @Html.TextAreaFor(m => m.TieuDe, new { @class = "form-control" , @required = "true" })
+                    </td>
+                    <td>
+                        <input type="submit" class="btn btn-success" value="Thêm" />
+                    </td>
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "AddNameTienGop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List_Name_TienGop
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Thêm người mới
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            @using (Html.BeginForm("AddNameTienGop", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Số Điện Thoại</th>
+                            <th>Tiêu Đề</th>
+                            <th>Bắt Đầu Từ Ngày</th>
+                            <th>Số Ngày Góp</th>
+                            <th>Chức Năng</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Số Điện Thoại</th>
+                            <th>Tiêu Đề</th>
+                            <th>Bắt Đầu Từ Ngày</th>
+                            <th>Số Ngày Góp</th>
+                            <th>Chức Năng</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.TextBoxFor(m => m.Name, "", new { @class = "form-control", @required = "true" })
+                                @if (ViewBag.Error != null)
+                                {
+                                    <span style="color:red">Tên này đã được đặt!<br />Vui lòng đặt tên khác!</span>
+                                }
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.PhoneNumber, "", new { @class = "form-control" })
+                            </td>
+                            <td>
+                                @Html.TextAreaFor(m => m.TieuDe, new { @class = "form-control", @required = "true" })
+                            </td>
+                            <td>
+                                <input type="date" name="NgayBatDau" required class="form-control" />
+                            </td>
+                            <td>
+                                <input name="SoNgay" type="text" required class="form-control" />
+                            </td>
+                            <td>
+                                <input type="submit" class="btn btn-success" value="Thêm" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+</div>
+

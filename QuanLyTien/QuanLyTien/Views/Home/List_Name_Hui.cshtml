@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "List_Name_Hui";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ol class="breadcrumb">
+    <a href="/Home/AddNameHui">
+        <li class="btn btn-success">
+            <i class="fa fa-plus-circle"></i> Thêm người mới
+        </li>
+    </a>
+</ol>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Danh Sách Hụi
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên</th>
+                        <th>Buổi</th>
+                        <th>Tiêu Đề</th>
+                        <th>Chức Năng</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Tên</th>
+                        <th>Buổi</th>
+                        <th>Tiêu Đề</th>
+                        <th>Chức Năng</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @if (ViewBag.List != null)
+                    {
+                        var list = ViewBag.List;
+                        foreach (var i in list)
+                        {
+                            <tr style="font-weight:bold">
+                                <td>
+                                    @i.Name
+                                </td>
+                                <td>
+                                    @i.Buoi
+                                </td>
+                                <td>
+                                    @i.TieuDe
+                                </td>
+                                <td>
+                                    <a href="/Home/DetailHui?name=@i.Name&tieude=@i.TieuDe">
+                                        <button class="btn btn-success"><i class="fa fa-eye"></i> Xem</button>
+                                    </a>
+                                    &nbsp; ||  &nbsp;
+                                    <button onclick="cfmXoa('@i.Name')" class="btn btn-danger"><i class="fa fa-trash"></i>Xóa</button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<dialog style="border:none;border-radius:5px;text-align:center">
+    <h5 style="color:red">Bạn có chắc muốn xóa người này?</h5>
+    <button id="ok" class="btn btn-danger">
+        Đồng ý
+    </button>
+    &nbsp; &nbsp;
+    <button onclick="cfmClose()" id="cancel" class="btn btn-success">
+        Hủy bỏ
+    </button>
+</dialog>
+<script>
+    function cfmXoa(name) {
+        var dialog = document.querySelector('dialog')
+        dialog.showModal();
+
+        $('#ok').on("click", function () {
+            $.ajax({
+                url: "/Home/DeleteNameHui",
+                data: {
+                    name: name
+                },
+                success: function () {
+                    window.location = "/Home/List_Name_Hui";
+                }
+            });
+        })
+    }
+
+    function cfmClose() {
+        var dialog = document.querySelector('dialog')
+        dialog.close();
+    }
+</script>

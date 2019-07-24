@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuanLyTienModelStoreContainer" CdmEntityContainer="QuanLyTienEntities">
+    <EntitySetMapping Name="List_Name_HuiHeo">
+      <EntityTypeMapping TypeName="QuanLyTienModel.List_Name_HuiHeo">
+        <MappingFragment StoreEntitySet="List_Name_HuiHeo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Buoi" ColumnName="Buoi" />
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="List_Name_TienGop">
+      <EntityTypeMapping TypeName="QuanLyTienModel.List_Name_TienGop">
+        <MappingFragment StoreEntitySet="List_Name_TienGop">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detail_HuiHeo">
+      <EntityTypeMapping TypeName="QuanLyTienModel.Detail_HuiHeo">
+        <MappingFragment StoreEntitySet="Detail_HuiHeo">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="Buoi" ColumnName="Buoi" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detail_TienGop">
+      <EntityTypeMapping TypeName="QuanLyTienModel.Detail_TienGop">
+        <MappingFragment StoreEntitySet="Detail_TienGop">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="List_Remove_HuiHeo">
+      <EntityTypeMapping TypeName="QuanLyTienModel.List_Remove_HuiHeo">
+        <MappingFragment StoreEntitySet="List_Remove_HuiHeo">
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="Buoi" ColumnName="Buoi" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detail_Remove_HuiHeo">
+      <EntityTypeMapping TypeName="QuanLyTienModel.Detail_Remove_HuiHeo">
+        <MappingFragment StoreEntitySet="Detail_Remove_HuiHeo">
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="Buoi" ColumnName="Buoi" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detail_Remove_TienGop">
+      <EntityTypeMapping TypeName="QuanLyTienModel.Detail_Remove_TienGop">
+        <MappingFragment StoreEntitySet="Detail_Remove_TienGop">
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="List_Remove_TienGop">
+      <EntityTypeMapping TypeName="QuanLyTienModel.List_Remove_TienGop">
+        <MappingFragment StoreEntitySet="List_Remove_TienGop">
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="QuanLyTienModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="User1" ColumnName="User" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

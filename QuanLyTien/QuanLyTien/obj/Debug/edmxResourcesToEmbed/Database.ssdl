@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyTienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Detail_HuiHeo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Buoi" Type="nvarchar" MaxLength="50" />
+    <Property Name="SoTien" Type="int" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="200" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Detail_Remove_HuiHeo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Buoi" Type="nvarchar" MaxLength="50" />
+    <Property Name="SoTien" Type="int" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="200" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Detail_Remove_TienGop">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="SoTien" Type="int" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="200" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Detail_TienGop">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="SoTien" Type="int" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="200" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="List_Name_HuiHeo">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Buoi" Type="nvarchar" MaxLength="50" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="List_Name_TienGop">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNumber" Type="int" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="List_Remove_HuiHeo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Buoi" Type="nvarchar" MaxLength="50" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="List_Remove_TienGop">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNumber" Type="int" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="QuanLyTienModelStoreContainer">
+    <EntitySet Name="Detail_HuiHeo" EntityType="Self.Detail_HuiHeo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detail_Remove_HuiHeo" EntityType="Self.Detail_Remove_HuiHeo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detail_Remove_TienGop" EntityType="Self.Detail_Remove_TienGop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detail_TienGop" EntityType="Self.Detail_TienGop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="List_Name_HuiHeo" EntityType="Self.List_Name_HuiHeo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="List_Name_TienGop" EntityType="Self.List_Name_TienGop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="List_Remove_HuiHeo" EntityType="Self.List_Remove_HuiHeo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="List_Remove_TienGop" EntityType="Self.List_Remove_TienGop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

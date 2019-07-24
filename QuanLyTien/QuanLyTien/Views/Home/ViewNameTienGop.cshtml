@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "ViewNameTienGop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Danh Sách Hụi
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên</th>
+                        <th>Số Điện Thoại</th>
+                        <th>Tiêu Đề</th>
+                        <th>Chức Năng</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Tên</th>
+                        <th>Số Điện Thoại</th>
+                        <th>Tiêu Đề</th>
+                        <th>Chức Năng</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @if (ViewBag.List != null)
+                    {
+                        var list = ViewBag.List;
+                        foreach (var i in list)
+                        {
+                            <tr style="font-weight:bold">
+                                <td>
+                                    @i.Name
+                                </td>
+                                <td>
+                                    @i.PhoneNumber
+                                </td>
+                                <td>
+                                    @i.TieuDe
+                                </td>
+                                <td>
+                                    <a href="/Home/DetailRemoveTienGop?name=@i.Name&tieude=@i.TieuDe">
+                                        <button class="btn btn-success"><i class="fa fa-eye"></i> Xem</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

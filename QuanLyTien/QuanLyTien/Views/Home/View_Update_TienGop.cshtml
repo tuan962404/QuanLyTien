@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "View_Update_TienGop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Detail_TienGop
+
+<div class="card mb-3">
+    <div class="card-header">
+
+        @if (ViewBag.TieuDe != null)
+        {
+            <h4>
+                <i class="fas fa-table"></i>
+                @ViewBag.TieuDe
+            </h4>
+        }
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr style="text-align:center">
+                        <th>STT</th>
+                        <th>Tên</th>
+                        <th>Ngày</th>
+                        <th>Số Tiền</th>
+                        <th>Ghi Chú</th>
+                        <th>Chức Năng</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr style="text-align:center">
+                        <th>STT</th>
+                        <th>Tên</th>
+                        <th>Ngày</th>
+                        <th>Số Tiền</th>
+                        <th>Ghi Chú</th>
+                        <th>Chức Năng</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @if (ViewBag.List != null)
+                    {
+                        var list = ViewBag.List;
+                        int idso = 0;
+                        int j = 1;
+                        foreach (var i in list)
+                        {
+                            <tr style="text-align:center;font-weight:bold">
+                                <td style="color:red">
+                                    @j
+                                </td>
+                                <td>
+                                    @i.Name
+                                </td>
+                                <td style="background-color:salmon;font-weight:bold">
+                                    @{
+                                        DateTime date = i.Date;
+                                        string Datestr = date.ToShortDateString();
+                                        string date_format = String.Format("{0:yyyy-MM-dd}", date);
+                                    }
+                                    @Datestr
+                                </td>
+                                @{
+                                    string id = "ID" + Convert.ToString(idso);
+                                    string id_ghichu = "IDGC" + Convert.ToString(idso);
+                                    string id_nhap = "IDNhap" + Convert.ToString(idso);
+                                }
+                                <td style="font-weight:bold;background-color:lightseagreen">
+                                    <input type="text" id="@id" required class="form-control" />
+                                </td>
+                                <td style="color:red">
+                                    <textarea id="@id_ghichu" class="form-control"></textarea>
+                                </td>
+                                <td>
+                                    <div id="@id_nhap">
+                                        <input type="button" value="Nhập" onclick="Update('@i.Name','@date_format','@id','@id_ghichu','@id_nhap')" class="btn btn-success" />
+                                    </div>
+                                </td>
+                            </tr>
+                            idso++;
+                            j++;
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Update(name, date, sotien, ghichu, id_nhap) {
+        var getIdsotien = document.getElementById(sotien);
+        var getSotien = getIdsotien.value;
+
+        var getIdghichu = document.getElementById(ghichu);
+        var getGhichu = getIdghichu.value;
+
+        $.ajax({
+            url: "/Home/UpdateTienGop",
+            data: {
+                name: name,
+                date: date,
+                sotien: getSotien,
+                ghichu: getGhichu,
+            },
+            dataType: "json",
+            type: "GET",
+            success: function (data) {
+                if (data != null) {
+                    var id = document.getElementById(id_nhap);
+                    var html = '<img src="../Content/iconYes.png" />';
+                    $(id).html(html);
+                }
+            }
+        });
+    }
+</script>
+

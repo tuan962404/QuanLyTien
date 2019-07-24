@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyTienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="List_Name_HuiHeo">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Buoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TieuDe" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="List_Name_TienGop">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="Int32" />
+    <Property Name="TieuDe" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="QuanLyTienEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="List_Name_HuiHeo" EntityType="Self.List_Name_HuiHeo" />
+    <EntitySet Name="List_Name_TienGop" EntityType="Self.List_Name_TienGop" />
+    <EntitySet Name="Detail_HuiHeo" EntityType="QuanLyTienModel.Detail_HuiHeo" />
+    <EntitySet Name="Detail_TienGop" EntityType="QuanLyTienModel.Detail_TienGop" />
+    <EntitySet Name="List_Remove_HuiHeo" EntityType="QuanLyTienModel.List_Remove_HuiHeo" />
+    <EntitySet Name="Detail_Remove_HuiHeo" EntityType="QuanLyTienModel.Detail_Remove_HuiHeo" />
+    <EntitySet Name="Detail_Remove_TienGop" EntityType="QuanLyTienModel.Detail_Remove_TienGop" />
+    <EntitySet Name="List_Remove_TienGop" EntityType="QuanLyTienModel.List_Remove_TienGop" />
+    <EntitySet Name="User" EntityType="QuanLyTienModel.User" />
+  </EntityContainer>
+  <EntityType Name="Detail_HuiHeo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Buoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoTien" Type="Int32" />
+    <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Detail_TienGop">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="SoTien" Type="Int32" />
+    <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="List_Remove_HuiHeo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Buoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TieuDe" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Detail_Remove_HuiHeo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Buoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoTien" Type="Int32" />
+    <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="TieuDe" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Detail_Remove_TienGop">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="SoTien" Type="Int32" />
+    <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="TieuDe" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="List_Remove_TienGop">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="Int32" />
+    <Property Name="TieuDe" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>
